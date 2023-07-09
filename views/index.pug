@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title '90s Joke Machine
+    link(rel="stylesheet", type="text/css", href="/styles.css")
+    script(src="https://unpkg.com/htmx.org@1.9.2")
+  body
+    .container
+      h1 Hello and welcome to the Joke Machine!
+      button.btn.btn-primary(hx-get="/joke", hx-target="#joke", hx-swap="innerHTML") Get Joke
+      #joke.joke-container(hx-trigger="load")
+      form(hx-post="/joke", hx-target="#marquee-container", hx-swap="outerHTML")
+        .input-container
+          input(type="text", name="text", required, placeholder="Enter a joke")
+          button(type="submit") Submit joke
+      .marquee-container.bounce
+        marquee(behavior="alternate") Made by Parcifal-M!
+    #marquee-container.marquee-container

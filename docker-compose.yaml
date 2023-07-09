@@ -6,6 +6,7 @@ services:
     volumes:
       - ./src:/usr/src/app/src
       - ./public:/usr/src/app/public
+      - ./views:/usr/src/app/views
     ports:
       - 3000:3000
     environment:

@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 router.get('/', (req, res) => {
     console.log('GET /');
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.render('index');
 });
 
 router.get('/joke', async (req, res) => {
