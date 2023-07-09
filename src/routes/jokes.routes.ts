@@ -1,6 +1,7 @@
 import express from 'express';
 import { PrismaClient } from "@prisma/client";
 import path from 'path';
+import validator from 'validator';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -31,10 +32,19 @@ router.get('/joke', async (req, res) => {
 router.post('/joke', async (req, res) => {
     console.log('POST /joke');
     const { text } = req.body;
+
+    // Input validation: check if text exists and if it's not too long
+    if (!text || text.length > 500) {
+        return res.status(400).send('<p>Invalid input</p>');
+    }
+
+    // Input sanitization: remove dangerous HTML tags
+    const sanitizedText = validator.escape(text);
+
     try {
         const newJoke = await prisma.joke.create({
             data: {
-                text
+                text: sanitizedText
             }
         });
         console.log('New joke created:', newJoke.text);
