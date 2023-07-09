@@ -71,6 +71,45 @@ button:active {
     margin: 20px auto;
 }
 
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column; /* stack elements vertically */
+    width: 100%; /* full width */
+    max-width: 600px; /* adjust this value to your liking */
+    margin: 20px auto; /* center horizontally */
+}
+
+.input-container input {
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #FFD700;
+    border-radius: 6px;
+    width: 100%; /* take up all available space in the container */
+}
+
+.input-container button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    border: 2px solid #FFD700;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.5s;
+    width: 100%; /* take up all available space in the container */
+    margin-top: 10px; /* add some spacing between the input and the button */
+}
+
+.marquee-container {
+    position: fixed; /* Make it stick to the viewport */
+    bottom: 0; /* Align it to the bottom */
+    width: 100%; /* Full width */
+    text-align: center; /* Center the text */
+}
+
 @keyframes rainbow {
   0% {color: red;}
   14% {color: orange;}

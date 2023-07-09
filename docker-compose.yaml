@@ -1,6 +1,7 @@
 version: '3'
 services:
   app:
+    container_name: htmx-demo-app
     build: .
     volumes:
       - ./src:/usr/src/app/src
@@ -9,3 +10,19 @@ services:
       - 3000:3000
     environment:
       - NODE_ENV=development
+      - DATABASE_URL=postgresql://demoUser:demo123@db:5432/htmx-demo
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: demoUser
+      POSTGRES_PASSWORD: demo123
+      POSTGRES_DB: htmx-demo
+    ports:
+      - 5432:5432
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+volumes:
+  database-data:

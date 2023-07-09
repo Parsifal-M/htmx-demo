@@ -12,10 +12,19 @@
         <h1>Hello and welcome to the Joke Machine!</h1>
         <button hx-get="/joke" hx-target="#joke" hx-swap="innerHTML" class="btn btn-primary">Get Joke</button>
         <div id="joke" class="joke-container"></div>
+        <form hx-post="/joke" hx-target="#marquee-container" hx-swap="outerHTML">
+            <div class="input-container">
+                <input type="text" name="text" required placeholder="Enter a joke">
+                <button type="submit">Submit joke</button>
+            </div>
+        </form>              
         <div class="marquee-container bounce">
             <marquee behavior="alternate">Made by Parcifal-M!</marquee>
-        </div>        
+        </div>
     </div>
+    <div id="marquee-container" class="marquee-container">
+        <!-- Marquee will be inserted here -->
+    </div>    
 </body>
 
 

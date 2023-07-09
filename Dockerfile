@@ -11,6 +11,9 @@ RUN npm install
 # Copy source files and tsconfig.json
 COPY . .
 
+# Compile TypeScript to JavaScript
+RUN npm run build
+
 # Expose the API port
 EXPOSE 3000
 
