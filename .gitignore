@@ -1,0 +1,33 @@
+# Ignore build output
+/dist/
+/out/
+/build/
+
+# Ignore dependencies
+/node_modules/
+
+# Ignore environment files
+.env
+
+# Ignore editor-specific files and folders
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*~
+.project
+*.iml
+npm-debug.log
+
+# Ignore compiled JavaScript files
+*.js
+*.js.map
+
+# Ignore compiled TypeScript declaration files
+*.d.ts
+
+# Ignore TypeScript build cache
+/.tscache/
+
+# Ignore log files
+*.log
